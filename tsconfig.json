@@ -18,14 +18,22 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "downlevelIteration": true,
-    "lib": ["es2015", "dom", "es2017.object", "es7", "esnext.array"],
+    "lib": [
+      "es2015",
+      "dom",
+      "es2017.object",
+      "es7",
+      "esnext.array"
+    ],
     "noImplicitAny": false,
     "strictNullChecks": false,
     "sourceMap": true,
-    "baseUrl": "src", // all paths are relative to the baseUrl
-    "paths": {
-      "~/*": ["*"]
-    }
+    "baseUrl": "src",
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
-  "include": ["./src/**/*"],
+  "include": [
+    "./src/**/*"
+  ]
 }

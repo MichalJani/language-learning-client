@@ -1,25 +1,29 @@
 import React from 'react';
 
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import {
+  Formik, Form, Field, ErrorMessage,
+} from 'formik';
 
-export const TextForm = (props:any) => (
+export const TranslationInputForm = (props: any) => (
   <div>
-    <br/>
-    <br/>
-    
-  <Formik
-    initialValues={{ text: '' }}
-    validate={values => {
-      const errors = {};
-      if (!values.text) {
+    <br />
+    <br />
+
+    <Formik
+      initialValues={{ text: '' }}
+      validate={(values) => {
+        const errors = {};
+
+        if (!values.text) {
         // errors.text = 'Required';
-      } else if (
-        /\S/.test(values.text)
-      ) {
+        } else if (
+          /\S/.test(values.text)
+        ) {
         // errors.text = 'Can\'t translate blank spaces';
-      }
-      return errors;
-    }}
+        }
+
+        return errors;
+      }}
     // validationSchema={Yup.object({
     //   firstName: Yup.string()
     //     .max(15, "Must be 15 characters or less")
@@ -42,27 +46,25 @@ export const TextForm = (props:any) => (
     //   //   )
     //   //   .required("Required")
     // })}
-  
-    onSubmit={(values, { setSubmitting }) => {
-      props.handleSubmit(values)
-      setTimeout(() => {
+
+      onSubmit={(values, { setSubmitting }) => {
+        props.handleSubmit(values.text);
+        setTimeout(() => {
         // alert(JSON.stringify(values, null, 2));
-        setSubmitting(false);
-      }, 400);
-    }}
-  >
-    {({ isSubmitting }) => (
-      <Form>
-        <Field type="text" name="text" />
-        <ErrorMessage name="text" component="div" />
-        
-        <button type="submit" disabled={isSubmitting}>
-          Submit
-        </button>
-      </Form>
-    )}
-  </Formik>
-</div>
+          setSubmitting(false);
+        }, 400);
+      }}
+    >
+      {({ isSubmitting }) => (
+        <Form>
+          <Field type="text" name="text" />
+          <ErrorMessage name="text" component="div" />
+
+          <button type="submit" disabled={isSubmitting}>
+            Submit
+          </button>
+        </Form>
+      )}
+    </Formik>
+  </div>
 );
-
-
