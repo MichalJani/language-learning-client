@@ -1,25 +1,31 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
+    "strictFunctionTypes": true,
     "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noImplicitThis": true,
+    "strictBindCallApply": true,
+    "importHelpers": true,
+    "strict": false,
+    "allowJs": true,
+    "incremental": true,
     "moduleResolution": "node",
+    "module": "esnext",
+    "target": "ES2017",
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+    "lib": ["es2015", "dom", "es2017.object", "es7", "esnext.array"],
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "sourceMap": true,
+    "baseUrl": "src", // all paths are relative to the baseUrl
+    "paths": {
+      "~/*": ["*"]
+    }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["./src/**/*"],
 }
