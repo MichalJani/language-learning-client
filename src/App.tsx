@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,  { useState }  from 'react';
+import axios from 'axios';
+import {TextForm} from './Form';
 import './App.css';
 
-function App() {
+
+
+
+export const App = ()=> {
+  const [translation, setTranslation] = useState(null);
+
+   const getTranslation= async (text:string)=> {
+    try {
+      const response = await axios.get(`http://localhost:5000/api/v1/translation/ru/${text}`);
+      setTranslation(response.data.data)
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const handleSubmit =(value: any)=>{
+    console.log(value)
+    getTranslation(value.text)
+  
+    }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <TextForm handleSubmit={handleSubmit}/>
+
+     <br/>
+     <br/>
+{translation? <div>{translation}</div>:null}
+
+
     </div>
   );
 }
 
-export default App;
