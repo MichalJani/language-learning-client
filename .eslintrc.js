@@ -34,6 +34,7 @@ module.exports = {
     'react/jsx-space-before-closing': 'off',
     'react/destructuring-assignment': 'off',
     'react/sort-comp': 'off',
+    'react/no-access-state-in-setstate': 'off',
 
     'no-restricted-globals': 'off',
     'no-prototype-builtins': 'off',

@@ -3,6 +3,7 @@
 import React from 'react';
 import axios from 'axios';
 import { TranslationInputForm } from './TranslationInputForm/TranslationInputForm';
+import { baseUrl } from './config';
 import './App.css';
 
 
@@ -20,11 +21,10 @@ export class App extends React.Component {
 
   private getTranslation = async ({ target, text }) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/v1/translation/${this.state.sourceLanguage}/${target}/${text}`);
+      const response = await axios.get(`${baseUrl}/api/v1/translation/${this.state.sourceLanguage}/${target}/${text}`);
 
 
       console.log('App -> privategetTranslation -> response.data.data', response.data.data.translations[0].translatedText);
-
       this.setState({ translated: [...this.state.translated, { text: response.data.data.translations[0].translatedText, target }] });
       console.log('App -> privategetTranslation -> this.state.translatedText', this.state.translatedText);
     } catch (error) {
