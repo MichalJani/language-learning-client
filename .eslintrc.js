@@ -24,6 +24,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-undef': 'off',
     'consistent-return': 'off',
+    "react/jsx-props-no-spreading": "off",
 
     /* Turn offs  */
     'import/no-unresolved': 'off',
