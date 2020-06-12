@@ -46,7 +46,9 @@ export class App extends React.Component {
           container
           spacing={3}
         >
-          <Grid item xs={12} className="app-header"><Header sourceLanguage={this.state.sourceLanguage} /></Grid>
+          <Grid item xs={12} className="app-header">
+            <Header sourceLanguage={this.state.sourceLanguage} />
+          </Grid>
           <Grid item xs={12} className="app-body">
             <Grid container spacing={3}>
               <Grid item xs={12}>
