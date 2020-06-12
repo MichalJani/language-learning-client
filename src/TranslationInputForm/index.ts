@@ -1,0 +1,1 @@
+export { TranslationInputForm } from './TranslationInputForm';
