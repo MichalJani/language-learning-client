@@ -3,10 +3,10 @@ import axios from 'axios';
 import {
   Grid, Paper,
 } from '@material-ui/core';
+
 import { TranslationInputForm } from '../TranslationInputForm';
 import { baseUrl } from '../config/config';
 import { Header } from '../Header';
-
 import { Footer } from '../Footer';
 import { Translation } from '../Translation';
 

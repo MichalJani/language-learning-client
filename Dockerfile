@@ -11,9 +11,6 @@
 #     -e CHOKIDAR_USEPOLLING=true \
 #     sample:dev
 
-
-
-
 # pull official base image
 FROM node:13.12.0-alpine
 
@@ -28,14 +25,12 @@ COPY package.json yarn.lock ./
 
 RUN yarn install
 
-
-
 # add app
 COPY . ./
 
-RUN yarn build
-
-CMD ["firebase", "deploy", "--project=$PROJECT_ID", "--only=hosting"]
+# TODO continuous deploymemnt to firebase
+# RUN yarn build
+# CMD ["firebase", "deploy", "--project=$PROJECT_ID", "--only=hosting"]
 
 # start app
-# CMD ["yarn", "start"]
+CMD ["yarn", "start"]
