@@ -35,7 +35,7 @@ COPY . ./
 
 RUN yarn build
 
-RUN firebase deploy --project=$PROJECT_ID --only=hosting
+CMD ["firebase", "deploy", "--project=$PROJECT_ID", "--only=hosting"]
 
 # start app
-CMD ["yarn", "start"]
+# CMD ["yarn", "start"]
