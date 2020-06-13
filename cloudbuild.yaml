@@ -1,5 +1,5 @@
 steps:
-  - name: 'gcr.io/docker'
+  - name: 'gcr.io/$PROJECT_ID/docker'
     args: ['build', '-f' ,'Dockerfile.prod' ,'-t' ,'client:prod', '.']
   # Install
   # - name: 'gcr.io/cloud-builders/yarn'
