@@ -1,14 +1,15 @@
 steps:
-  steps:
-    # Install
-    - name: 'gcr.io/cloud-builders/yarn'
-      args: ['install']
-    # Test
-    # - name: 'gcr.io/cloud-builders/yarn'
-    #   args: ['test:unit']
-    # Build
-    - name: 'gcr.io/cloud-builders/yarn'
-      args: ['build']
-    # Deploy
-    - name: gcr.io/$PROJECT_ID/firebase
-      args: ['deploy', '--project=$PROJECT_ID', '--only=hosting']
+  - name: 'gcr.io/docker'
+    args: ['build', '-f' ,'Dockerfile.prod' ,'-t' ,'client:prod', '.']
+  # Install
+  # - name: 'gcr.io/cloud-builders/yarn'
+  #   args: ['install']
+  # Test
+  # - name: 'gcr.io/cloud-builders/yarn'
+  #   args: ['test:unit']
+  # Build
+  # - name: 'gcr.io/cloud-builders/yarn'
+  #   args: ['build']
+  # Deploy
+  - name: gcr.io/$PROJECT_ID/firebase
+    args: ['deploy', '--project=$PROJECT_ID', '--only=hosting']
