@@ -14,8 +14,7 @@ RUN yarn install
 COPY . ./
 RUN yarn build
 
-RUN firebase deploy
-# CMD ["deploy", "--project=$PROJECT_ID", "--only=hosting"]
+RUN firebase deploy --project=$PROJECT_ID --only=hosting
 
 # production environment
 FROM nginx:stable-alpine
