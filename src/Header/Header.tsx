@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 import {
   AppBar, Toolbar, Typography, IconButton,
 } from '@material-ui/core';
@@ -9,17 +9,10 @@ interface HeaderProps{
   sourceLanguage: string
 }
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-  menuButton: {
-    marginRight: 0,
-  },
+const useStyles = makeStyles(() => createStyles({
   title: {
     flexGrow: 1,
+    textAlign: 'center',
   },
 }));
 
@@ -29,17 +22,24 @@ export const Header: React.SFC<HeaderProps> = ({ sourceLanguage }) => {
   return (
     <AppBar>
       <Toolbar>
-        <Typography variant="h6" className={classes.title}>
-          Translate IT!
-        </Typography>
-        <Typography variant="h6" className={classes.title}>
-          Source:
-          {' '}
-          {sourceLanguage}
-        </Typography>
-        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+        <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+        >
           <MenuIcon />
         </IconButton>
+        <Typography
+          variant="h6"
+          className={classes.title}
+        >
+          Translate IT!
+        </Typography>
+        <Typography
+          variant="h6"
+        >
+          {sourceLanguage.toUpperCase()}
+        </Typography>
       </Toolbar>
     </AppBar>
   );
