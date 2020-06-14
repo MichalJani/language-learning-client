@@ -9,7 +9,7 @@
 #     -v /app/node_modules \
 #     -p 3001:3000 \
 #     -e CHOKIDAR_USEPOLLING=true \
-#     sample:dev
+#     client:dev
 
 # pull official base image
 FROM node:13.12.0-alpine

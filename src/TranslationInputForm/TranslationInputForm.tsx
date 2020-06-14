@@ -16,16 +16,13 @@ interface TranslationInputFormProps {
 
 const useStyles = makeStyles(() => createStyles({
   gridContainer: {
-    paddingBottom: '20px',
+    padding: '20px 0',
   },
   gridItemInput: {
     paddingLeft: '3%',
   },
   gridItemButton: {
-    paddingLeft: '3%',
-  },
-  submitButton: {
-    marginLeft: '2%',
+    padding: '1px 0 0 2%',
   },
 }));
 
@@ -66,14 +63,37 @@ export const TranslationInputForm: React.SFC<TranslationInputFormProps> = (props
     >
       {({ isSubmitting }) => (
         <Form>
-          <Grid container alignContent="center" justify="center" className={classes.gridContainer}>
-            <Grid item xs={8} className={classes.gridItemInput}>
-              {/* <div /> */}
-              <Field type="text" name="text" size="small" component={InputField} />
-              <ErrorMessage name="text" component="div" />
+          <Grid
+            container
+            className={classes.gridContainer}
+          >
+            <Grid
+              item
+              xs={8}
+              className={classes.gridItemInput}
+            >
+              <Field
+                type="text"
+                name="text"
+                size="small"
+                component={InputField}
+              />
+              <ErrorMessage
+                name="text"
+                component="div"
+              />
             </Grid>
-            <Grid item xs={4} className={classes.gridItemButton}>
-              <Button type="submit" disabled={isSubmitting} variant="contained" color="primary" className={classes.submitButton}>
+            <Grid
+              item
+              xs
+              className={classes.gridItemButton}
+            >
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                variant="contained"
+                color="primary"
+              >
                 Submit
               </Button>
             </Grid>

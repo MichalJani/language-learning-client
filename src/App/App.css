@@ -1,7 +1,21 @@
+
+
 .app {
+  /* min-height: 100vh; */
+  max-width: 100%;
   min-height: 100vh;
+  margin: 0 auto -50px;
 }
 
-.app-header{
-  height: 80px;
+.app-body {
+  padding-top: 80px;
+
 }
+
+.app-footer {
+  height: 50px;
+}
+
+/* .app-translation {
+  min-height: 700px;
+} */

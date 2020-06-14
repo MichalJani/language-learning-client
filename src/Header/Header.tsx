@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
 }));
 
-export const Header :React.SFC<HeaderProps> = ({ sourceLanguage }) => {
+export const Header: React.SFC<HeaderProps> = ({ sourceLanguage }) => {
   const classes = useStyles();
 
   return (

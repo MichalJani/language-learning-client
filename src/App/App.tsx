@@ -41,38 +41,33 @@ export class App extends React.Component {
 
   public render() {
     return (
-      <div className="app">
+      <>
+        <Header sourceLanguage={this.state.sourceLanguage} />
         <Grid
           container
-          spacing={3}
+          className="app"
+          direction="column"
+          justify="flex-start"
+          alignItems="center"
         >
-          <Grid item xs={12} className="app-header">
-            <Header sourceLanguage={this.state.sourceLanguage} />
-          </Grid>
-          <Grid item xs={12} className="app-body">
-            <Grid container spacing={3}>
-              <Grid item xs={12}>
-                <Paper className="app-paper">
-                  <TranslationInputForm handleSubmit={this.handleSubmit} />
-                </Paper>
-              </Grid>
+
+          <Grid container item xs={11} className="app-body">
+            <Grid item xs>
+              <Paper>
+                <TranslationInputForm handleSubmit={this.handleSubmit} />
+              </Paper>
             </Grid>
-            <Grid container spacing={3}>
+            <Grid container item xs={11} className="app-translation">
               {this.state.translated.length ? this.state.translated.map(({ text, target }) => (
-                <Grid
-                  item
-                  xs={12}
-                >
+                <Grid item xs>
                   <Translation text={text} target={target} />
                 </Grid>
               )) : null}
             </Grid>
           </Grid>
-          <Grid item xs={12}>
-            <Footer />
-          </Grid>
         </Grid>
-      </div>
+        <Footer />
+      </>
     );
   }
 }
