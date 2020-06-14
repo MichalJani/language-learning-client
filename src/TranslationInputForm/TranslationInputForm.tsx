@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import {
-  Button, Grid,
+  Button,
 } from '@material-ui/core';
 import {
   Formik, Form, Field, ErrorMessage,
@@ -15,14 +15,21 @@ interface TranslationInputFormProps {
 }
 
 const useStyles = makeStyles(() => createStyles({
-  gridContainer: {
-    padding: '20px 0',
+  form: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '5%',
   },
-  gridItemInput: {
-    paddingLeft: '3%',
+  input: {
+    width: '75%',
   },
-  gridItemButton: {
-    padding: '1px 0 0 2%',
+  button: {
+    marginLeft: '5px',
+    width: '20%',
+  },
+  errorMessage: {
+    textAlign: 'left',
   },
 }));
 
@@ -63,41 +70,30 @@ export const TranslationInputForm: React.SFC<TranslationInputFormProps> = (props
     >
       {({ isSubmitting }) => (
         <Form>
-          <Grid
-            container
-            className={classes.gridContainer}
-          >
-            <Grid
-              item
-              xs={8}
-              className={classes.gridItemInput}
+          <div className={classes.form}>
+            <Field
+              type="text"
+              name="text"
+              size="small"
+              className={classes.input}
+              component={InputField}
+            />
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              variant="contained"
+              color="primary"
+              className={classes.button}
             >
-              <Field
-                type="text"
-                name="text"
-                size="small"
-                component={InputField}
-              />
-              <ErrorMessage
-                name="text"
-                component="div"
-              />
-            </Grid>
-            <Grid
-              item
-              xs
-              className={classes.gridItemButton}
-            >
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                variant="contained"
-                color="primary"
-              >
-                Submit
-              </Button>
-            </Grid>
-          </Grid>
+              GO!
+            </Button>
+          </div>
+          <div className={classes.errorMessage}>
+            <ErrorMessage
+              name="text"
+              component="div"
+            />
+          </div>
         </Form>
       )}
     </Formik>
